@@ -1,0 +1,27 @@
+Este es el mismo codigo que se encuentra en el repositoria "BEA_", solamente se hizo un cambio de version de vue@2.7.16 a vue@3.4.18 por motivos de practicidad
+
+///Notas:///
+En componentes como Inicio.vue y autoayuda.vue, busca el siguiente bloque de código:
+
+beforeDestroy() {
+  this.detenerTemporizadorBanner();
+},
+y reemplázalo por:
+
+beforeUnmount() {
+  this.detenerTemporizadorBanner();
+},
+esto para evitar errores de compilación.
+///
+Tambien recordar ponner nombre a los componetes, por ejemplo:
+<script>
+export default {
+  name: 'InicioBEA',
+  data() {
+    return {
+      },
+    };
+  },
+</script>
+Recordar agregar otra palabra al nombre en esete caso se agrega "BEA" para asi evitar otros errores de compilación.
+///

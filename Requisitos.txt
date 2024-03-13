@@ -1,0 +1,4 @@
+Para que este codigo funcione bien recuerde tener intalados los siguientes npm:
+
+npm install vue-router
+npm install @fullcalendar/vue3 @fullcalendar/core @fullcalendar/daygrid

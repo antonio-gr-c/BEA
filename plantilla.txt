@@ -1,0 +1,153 @@
+<template>
+    <div>
+      <!-- Barra de Navegación -->
+      <nav class="barra-navegacion">
+        <!-- Logo -->
+        <div class="logo">
+          <router-link to="/" class="enlace-navegacion">  <img src="https://i.ibb.co/TkHLsmX/anahuac-oaxaca.png" alt="Logo Anáhuac"></router-link>
+        </div>
+  
+        <!-- Secciones -->
+        <div class="secciones-navegacion">
+          <router-link to="/PrimeraCita" class="enlace-navegacion">Primera Cita</router-link>
+          <router-link to="/seguimiento" class="enlace-navegacion">Seguimiento</router-link>
+          <router-link to="/horario" class="enlace-navegacion">Horario</router-link>
+          <router-link to="/autoayuda" class="enlace-navegacion">Autoayuda</router-link>
+        </div>
+  
+        <!-- Botón de Inicio de Sesión -->
+        <div class="boton-inicio-sesion">
+          <button @click="abrirEnlace('/inicio-sesion')">Iniciar sesión</button>
+        </div>
+      </nav>
+  
+      <!-- Contenido de la Página -->
+      <div class="contenido-pagina">
+        <router-view></router-view>
+     
+        <!-- Pie de Página -->
+        <footer class="pie-pagina">
+          <div class="contenido-pie">
+            <!-- Imagen a la derecha -->
+            <div class="derecha-pie">
+              <img src="https://www.anahuac.mx/oaxaca/sites/default/files/img/Inicial.png" alt="Logo Anáhuac">
+            </div>
+  
+            <!-- Información de contacto -->
+            <div class="contacto-pie">
+              <button class="boton-pie" @click="abrirMapa" target="_blank">
+                <strong>Dirección:</strong> Blvd. Guadalupe Hinojosa de Murat No. 1100.<br>San Raymundo Jalpan, Oaxaca C.P. 71248.
+              </button>
+              <p><strong>Teléfono:</strong> (951) 50-1-62-50<br>Lada sin costo: 800-737-26-24<br>E-mail: orientacionpsicologica.uao@anahuac.mx</p>
+            </div>
+  
+            <!-- Enlaces a Aviso de Privacidad y Compendio Reglamentario como botones -->
+            <div class="botones-pie">
+              <button v-for="(enlace, texto) in enlacesPie" :key="texto" class="boton-pie" @click="abrirEnlace(enlace)">{{ texto }}</button>
+            </div>
+  
+            <!-- Botones de redes sociales como botones -->
+            <div class="botones-sociales-pie">
+              <button v-for="(botonSocial, index) in botonesSociales" :key="index" class="boton-pie" @click="abrirEnlace(botonSocial.enlace)" target="_blank">
+                <img :src="botonSocial.icono" alt="Icono de red social">
+              </button>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </div>
+  </template>
+  
+  <script>
+  export default {
+    name: 'HorarioBea',
+  };
+  </script>
+  
+  <style scoped>
+  /* Barra de Navegación */
+  .barra-navegacion {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 15px;
+    background-color: black;
+    color: white;
+  }
+  .logo img {
+    max-height: 40px;
+  }
+  .secciones-navegacion {
+    display: flex;
+  }
+  .enlace-navegacion {
+    margin-right: 30px;
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  .enlace-navegacion:hover {
+    color: #d45c37;
+  }
+  .boton-inicio-sesion button {
+    background-color: #d45c37;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+  .boton-inicio-sesion button:hover {
+    background-color: #a03722;
+  }
+  /* Contenido de la Página */
+  .contenido-pagina {
+    padding: 10px;
+  }
+  /* Pie de Página */
+  .pie-pagina {
+    background-color: black;
+    color: white;
+    padding: 30px;
+  }
+  .contenido-pie {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+  }
+  .derecha-pie img {
+    max-height: 80px;
+  }
+  .contacto-pie p {
+    margin: 10px;
+  }
+  .botones-pie {
+    display: flex;
+    flex-direction: column;
+  }
+  .boton-pie {
+    background-color: #000000;
+    color: white;
+    border: none;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+  .botones-sociales-pie img {
+    max-height: 35px;
+    margin-right: 5px;
+  }
+  .botones-sociales-pie button {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+  }
+  </style>

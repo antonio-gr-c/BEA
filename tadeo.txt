@@ -1,0 +1,5 @@
+conexion desde otro dispositivo
+
+detalles de los cambios:
+
+prueba de mi conexion;
